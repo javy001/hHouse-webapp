@@ -9,12 +9,16 @@ import {MdToolbarModule, MdCardModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CabinetListComponent } from './cabinet-list/cabinet-list.component';
+import { ChartParentComponent } from './chart-parent/chart-parent.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CabinetListComponent
+    CabinetListComponent,
+    ChartParentComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
