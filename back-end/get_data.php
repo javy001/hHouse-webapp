@@ -5,7 +5,7 @@ $db = new mysqli('ec2-54-68-139-60.us-west-2.compute.amazonaws.com', 'javierq', 
 if($_SERVER['REQUEST_METHOD']=='GET'){
     // return individual test data
     if(isset($_GET['id'])){
-        $cabId = $_Get['id'];
+        $cabId = $_GET['id'];
         $sql = "select *
         from read_port.fact_readings
         where cabinet_id=$cabId
