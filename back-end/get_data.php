@@ -9,6 +9,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $sql = "select *
         from read_port.fact_readings
         where cabinet_id=$cabId
+        and metric in ('IAH','IAT','pH','WT')
         order by date_key";
         $data = $db->query($sql);
         if($data){
