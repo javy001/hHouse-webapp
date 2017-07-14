@@ -1,6 +1,7 @@
 import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ChartModule } from 'angular-highcharts';
 import {MdToolbarModule, MdCardModule} from '@angular/material';
@@ -20,7 +21,14 @@ import { CabinetListComponent } from './cabinet-list/cabinet-list.component';
     BrowserAnimationsModule,
     ChartModule,
     MdToolbarModule,
-    MdCardModule
+    MdCardModule,
+
+    RouterModule.forRoot([
+        {
+            path: '',
+            component: CabinetListComponent
+        }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
