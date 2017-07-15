@@ -23,15 +23,27 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         echo(json_encode($returnData));
     }
     elseif(isset($_GET['all'])){
-        $sql = "select cabinet_id, cabinet_name, count(*)
+        $sql = "
+        select a.cabinet_id, b.cabinet_name, b.metric, b.metric_value
+        from
+        (select cabinet_id, max(date_key) as date_key
         from read_port.fact_readings
         where metric in ('IAH','IAT','pH','WT')
-        group by 1,2";
+        group by 1) a
+        left join
+        (select cabinet_id, date_key, cabinet_name, metric, metric_value
+        from read_port.fact_readings
+        where metric in ('IAH','IAT','pH','WT')
+        ) b on a.cabinet_id=b.cabinet_id and a.date_key=b.date_key
+        order by 3
+        ";
         $data = $db->query($sql);
         if($data){
             while($row = $data->fetch_assoc()){
-                $id = $row['cabinet_id'];
-                $returnData[$id] = $row['cabinet_name'];
+                $name = $row['cabinet_name'];
+                $metric = $row['metric'];
+                $returnData[$name]['id'] = $row['cabinet_id'];
+                $returnData[$name]['data'][$metric] = floatval($row['metric_value']);
             }
         }
         echo(json_encode($returnData));

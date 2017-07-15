@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ChartModule } from 'angular-highcharts';
-import {MdToolbarModule, MdCardModule} from '@angular/material';
+import {MdToolbarModule, MdCardModule, MdGridListModule,MdButtonModule} from '@angular/material';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,6 +27,9 @@ import { ChartComponent } from './chart/chart.component';
     ChartModule,
     MdToolbarModule,
     MdCardModule,
+    HttpModule,
+    MdGridListModule,
+    MdButtonModule,
 
     RouterModule.forRoot([
         {

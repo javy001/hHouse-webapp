@@ -1,0 +1,25 @@
+<div *ngFor="let name of names">
+    <md-card >
+        {{name}}
+        <md-grid-list cols="4" rowHeight="2:1">
+            <md-grid-tile>
+                Inside Air Temperature<br><br>
+                {{cabinetList[name]['data']['IAT']}}
+            </md-grid-tile>
+            <md-grid-tile>
+                Water Temperature<br><br>
+                {{cabinetList[name]['data']['WT']}}
+            </md-grid-tile>
+            <md-grid-tile>
+                pH<br><br>
+                {{cabinetList[name]['data']['pH']}}
+            </md-grid-tile>
+            <md-grid-tile>
+                Inside Air Humidity<br><br>
+                {{cabinetList[name]['data']['IAH']}}
+            </md-grid-tile>
+        </md-grid-list>
+    <button md-raised-button color="accent" routerLink="/">Charts</button>
+    </md-card>
+    <div class="buffer"></div>
+</div>
