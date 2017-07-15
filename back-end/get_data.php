@@ -22,6 +22,20 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         }
         echo(json_encode($returnData));
     }
+    elseif(isset($_GET['all'])){
+        $sql = "select cabinet_id, cabinet_name, count(*)
+        from read_port.fact_readings
+        where metric in ('IAH','IAT','pH','WT')
+        group by 1,2";
+        $data = $db->query($sql);
+        if($data){
+            while($row = $data->fetch_assoc()){
+                $id = $row['cabinet_id'];
+                $returnData[$id] = $row['cabinet_name'];
+            }
+        }
+        echo(json_encode($returnData));
+    }
 }
 
 
