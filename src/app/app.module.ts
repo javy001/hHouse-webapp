@@ -35,6 +35,10 @@ import { ChartComponent } from './chart/chart.component';
         {
             path: '',
             component: CabinetListComponent
+        },
+        {
+            path:'unit/:id',
+            component: ChartParentComponent
         }
     ])
   ],

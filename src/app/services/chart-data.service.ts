@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map';
 export class ChartDataService {
 
     constructor(private http: Http){}
-    getTestData(test_id): Observable<any>{
-         return this.http.get('http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/get_data.php?id='+test_id)
+    getData(id): Observable<any>{
+         return this.http.get('http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/get_data.php?id='+id)
             .map(response => response.json());
         // return this.http.get('http://consumer-dev.sv2.trulia.com/dashboards/mobile/get_test_data.php?test_id='+test_id)
         //     .map(response => response.json());

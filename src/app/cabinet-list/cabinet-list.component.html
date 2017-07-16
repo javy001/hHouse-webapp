@@ -1,25 +1,26 @@
-<div *ngFor="let name of names">
-    <md-card >
-        {{name}}
-        <md-grid-list cols="4" rowHeight="2:1">
-            <md-grid-tile>
-                Inside Air Temperature<br><br>
-                {{cabinetList[name]['data']['IAT']}}
-            </md-grid-tile>
-            <md-grid-tile>
-                Water Temperature<br><br>
-                {{cabinetList[name]['data']['WT']}}
-            </md-grid-tile>
-            <md-grid-tile>
-                pH<br><br>
-                {{cabinetList[name]['data']['pH']}}
-            </md-grid-tile>
-            <md-grid-tile>
-                Inside Air Humidity<br><br>
-                {{cabinetList[name]['data']['IAH']}}
-            </md-grid-tile>
-        </md-grid-list>
-    <button md-raised-button color="accent" routerLink="/">Charts</button>
-    </md-card>
+<div class="col-md-8 col-md-offset-1" *ngFor="let name of names">
+    <div class="card">
+        <div class="card-header col-xs-12">{{name}}: {{cabinetList[name]['time']}}</div>
+        <div class="buffer col-xs-12"></div>
+        <div class="col-xs-6 content">
+            Inside Air Temp<br>
+            {{cabinetList[name]['data']['IAT']}}
+        </div>
+        <div class="col-xs-6 content">
+            Inside Water Temp<br>
+            {{cabinetList[name]['data']['WT']}}
+        </div>
+        <div class="buffer col-xs-12"></div>
+        <div class="col-xs-6 content">
+            pH Level<br>
+            {{cabinetList[name]['data']['pH']}}
+        </div>
+        <div class="col-xs-6 content">
+            Inside Air Humidity<br>
+            {{cabinetList[name]['data']['IAH']}}
+        </div>
+        &nbsp;&nbsp;<button md-button routerLink="/unit/{{cabinetList[name]['id']}}">Charts</button>
+        <div class="small-buffer"></div>
+    </div>
     <div class="buffer"></div>
 </div>

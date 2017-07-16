@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     }
     elseif(isset($_GET['all'])){
         $sql = "
-        select a.cabinet_id, b.cabinet_name, b.metric, b.metric_value
+        select a.cabinet_id, b.cabinet_name, b.metric, b.metric_value, b.date_key
         from
         (select cabinet_id, max(date_key) as date_key
         from read_port.fact_readings
@@ -44,6 +44,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
                 $metric = $row['metric'];
                 $returnData[$name]['id'] = $row['cabinet_id'];
                 $returnData[$name]['data'][$metric] = floatval($row['metric_value']);
+                $returnData[$name]['time'] = $row['date_key'];
             }
         }
         echo(json_encode($returnData));

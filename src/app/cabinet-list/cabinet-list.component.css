@@ -1,6 +1,12 @@
-md-grid-tile{
+
+.content{
     text-align: center;
-}
-md-card{
     font-size: 1.1em;
+}
+button{
+    background-color: #536DFE;
+    color: white;
+}
+.small-buffer{
+    height: 8px
 }

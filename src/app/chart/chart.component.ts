@@ -11,6 +11,7 @@ export class ChartComponent implements OnInit {
     constructor() {}
 
     @Input('title') title: string;
+    @Input() data: Array<any>;
 
     //chart = new Chart(this.chartOptions);
     chart = new Chart({
@@ -18,7 +19,7 @@ export class ChartComponent implements OnInit {
         type: 'line'
       },
       title: {
-        text: 'test'
+        text: ''
       },
       credits: {
         enabled: false
@@ -31,7 +32,7 @@ export class ChartComponent implements OnInit {
     }],
     yAxis: [{
         title: {
-            text: "Lift Over Control (%)"
+            text: ""
         }
     }],
     plotOptions: {
@@ -55,13 +56,9 @@ export class ChartComponent implements OnInit {
     @Input() chartData: Object;
 
     ngOnInit(){
-        for(var series in this.chartData){
-            if(series != 'Control'){
-                this.chart.options.title.text = this.title;
-                this.chart.addSerie({name: series, data: this.chartData[series]});
-            }
 
-        }
+        this.chart.addSerie({name: this.title, data: this.data});
+        this.chart.options.title.text = this.title;
     }
 
 

@@ -1,1 +1,4 @@
-<chart></chart>
+<div *ngFor="let metric of metrics">
+    <chart [data]="data['time_series'][metric]" [title]="metric"></chart>
+    <div class="buffer col-xs-12"></div>
+</div>
