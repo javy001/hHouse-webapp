@@ -16,10 +16,14 @@ export class ChartComponent implements OnInit {
     //chart = new Chart(this.chartOptions);
     chart = new Chart({
       chart: {
-        type: 'line'
+        type: 'line',
+        backgroundColor: null
       },
       title: {
-        text: ''
+        text: '',
+        style: {
+            color: '#E0E0E0'
+        }
       },
       credits: {
         enabled: false
@@ -28,12 +32,18 @@ export class ChartComponent implements OnInit {
         type: 	'datetime',
         tickInterval:  3 * 24 * 3600 * 1000,
         startOnTick: true,
-        startOfWeek: 0
+        startOfWeek: 0,
+        labels: {
+            style: {color: "#E0E0E0"}
+        },
     }],
     yAxis: [{
         title: {
             text: ""
-        }
+        },
+        labels: {
+            style: {color: "#E0E0E0"}
+        },
     }],
     plotOptions: {
         line: {
@@ -41,6 +51,11 @@ export class ChartComponent implements OnInit {
                 enabled: false
                 }
             }
+    },
+    legend: {
+        itemStyle: {
+            color: '#E0E0E0'
+        }
     },
     tooltip : {
             valueDecimals: 2,
@@ -57,7 +72,7 @@ export class ChartComponent implements OnInit {
 
     ngOnInit(){
 
-        this.chart.addSerie({name: this.title, data: this.data});
+        this.chart.addSerie({name: this.title, data: this.data, color: '#E0E0E0'});
         this.chart.options.title.text = this.title;
     }
 

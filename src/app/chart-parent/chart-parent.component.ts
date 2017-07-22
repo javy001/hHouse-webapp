@@ -11,6 +11,7 @@ import { ChartDataService } from '../services/chart-data.service';
 export class ChartParentComponent implements OnInit {
 
     cabinetId: number;
+    metric: string;
     data: Object;
     metrics = [];
 
@@ -22,7 +23,10 @@ export class ChartParentComponent implements OnInit {
 
     ngOnInit() {
       this.route.params
-          .subscribe(res => this.cabinetId = +res['id']);
+          .subscribe(res => {
+              this.cabinetId = +res['id']
+              this.metric = res['metric']
+          });
       this.chartDataService.getData(this.cabinetId)
         .subscribe(res=> {
             this.data = res

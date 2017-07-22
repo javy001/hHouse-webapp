@@ -1,26 +1,23 @@
-<div class="col-md-8 col-md-offset-1" *ngFor="let name of names">
-    <div class="card">
-        <div class="card-header col-xs-12">{{name}}: {{cabinetList[name]['time']}}</div>
-        <div class="buffer col-xs-12"></div>
-        <div class="col-xs-6 content">
-            Inside Air Temp<br>
-            {{cabinetList[name]['data']['IAT']}}
+<div *ngFor="let name of names">
+    {{name}}
+    <div class="card-parent">
+        <div class="sticker" routerLink="/unit/{{cabinetList[name]['id']}}/WT">
+            <div>Water Temp</div>
+            <div>{{cabinetList[name]['data']['WT']}}</div>
         </div>
-        <div class="col-xs-6 content">
-            Inside Water Temp<br>
-            {{cabinetList[name]['data']['WT']}}
+        <div class="sticker" routerLink="/unit/{{cabinetList[name]['id']}}/IAT">
+            <div>Air Temp</div>
+            <div>{{cabinetList[name]['data']['IAT']}}</div>
         </div>
-        <div class="buffer col-xs-12"></div>
-        <div class="col-xs-6 content">
-            pH Level<br>
-            {{cabinetList[name]['data']['pH']}}
-        </div>
-        <div class="col-xs-6 content">
-            Inside Air Humidity<br>
-            {{cabinetList[name]['data']['IAH']}}
-        </div>
-        &nbsp;&nbsp;<button md-button routerLink="/unit/{{cabinetList[name]['id']}}">Charts</button>
-        <div class="small-buffer"></div>
     </div>
-    <div class="buffer"></div>
+    <div class="card-parent">
+        <div class="sticker" routerLink="/unit/{{cabinetList[name]['id']}}/pH">
+            <div>pH Level</div>
+            <div>{{cabinetList[name]['data']['pH']}}</div>
+        </div>
+        <div class="sticker" routerLink="/unit/{{cabinetList[name]['id']}}/IAH">
+            <div>Air Humidity</div>
+            <div>{{cabinetList[name]['data']['IAH']}}</div>
+        </div>
+    </div>
 </div>

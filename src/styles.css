@@ -1,13 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
 body{
-    background-color: #fafafa;
+    /*background: linear-gradient(to bottom,#0e7fd6,#E0E0E0);*/
     margin: 0;
     height: 100%;
     width: 100%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    background: -webkit-linear-gradient( to bottom, #006ec4,#75c3ff);
+    background: -moz-linear-gradient( to bottom, #006ec4,#75c3ff);
+    background: -ms-linear-gradient( to bottom, #006ec4,#75c3ff);
+    background: -o-linear-gradient( to bottom, #006ec4,#75c3ff);
+    background: linear-gradient( to bottom, #006ec4,#75c3ff);
 }
 .buffer{
     height: 25px;
+}
+.offset{
+    height: 50px;
 }
 .card{
      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -21,4 +31,10 @@ body{
     color: white;
     padding-top: 8px;
     padding-left: 8px;
+}
+html {
+    height: 100%;    
+}
+body{
+    background-attachment: fixed;
 }

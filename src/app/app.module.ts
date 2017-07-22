@@ -37,7 +37,7 @@ import { ChartComponent } from './chart/chart.component';
             component: CabinetListComponent
         },
         {
-            path:'unit/:id',
+            path:'unit/:id/:metric',
             component: ChartParentComponent
         }
     ])
