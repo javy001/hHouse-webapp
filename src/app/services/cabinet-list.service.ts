@@ -11,6 +11,7 @@ export class CabinetListService {
     getCabinetList(): Observable<any>{
          return this.http.get('http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/get_data.php?all')
             .map(response => response.json());
-
+            // http://localhost:5555/hHouse/back-end/get_data.php?all
+            // http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/get_data.php?all
     }
 }

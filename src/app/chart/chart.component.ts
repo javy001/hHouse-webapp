@@ -72,7 +72,7 @@ export class ChartComponent implements OnInit {
 
     ngOnInit(){
 
-        this.chart.addSerie({name: this.title, data: this.data, color: '#E0E0E0'});
+        this.chart.addSerie({name: this.title, data: this.data, color: '#3875ff'});
         this.chart.options.title.text = this.title;
     }
 

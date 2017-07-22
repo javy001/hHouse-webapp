@@ -1,5 +1,5 @@
-<div *ngFor="let name of names">
-    {{name}}
+<div class="wrapper" *ngFor="let name of names">
+    <div class="title">{{name}}</div>
     <div class="card-parent">
         <div class="sticker" routerLink="/unit/{{cabinetList[name]['id']}}/WT">
             <div>Water Temp</div>

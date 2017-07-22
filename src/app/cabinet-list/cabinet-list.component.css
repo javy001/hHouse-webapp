@@ -1,6 +1,14 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .card-parent{
     display: flex;
     justify-content: space-around;
+    width: 100%;
+    max-width: 500px;
+
 }
 .sticker{
     width: 45%;
@@ -16,8 +24,13 @@
     align-items: center;
     border-radius: 5px;
     font-size: 1.5em;
+    max-width: 200px;
 
 }
 .sticker:hover{
     cursor: pointer;
+}
+.title{
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }

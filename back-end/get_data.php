@@ -6,10 +6,11 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     // return individual test data
     if(isset($_GET['id'])){
         $cabId = $_GET['id'];
+        $metric = $_GET['metric'];
         $sql = "select *
         from read_port.fact_readings
         where cabinet_id=$cabId
-        and metric in ('IAH','IAT','pH','WT')
+        and metric = '$metric'
         order by date_key";
         $data = $db->query($sql);
         if($data){
@@ -17,7 +18,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
                 $dk = strtotime($row['date_key'])*1000;
                 $returnData['name'] = $row['cabinet_name'];
                 $metric = $row['metric'];
-                $returnData['time_series'][$metric][] = array($dk,floatval($row['metric_value']));
+                $returnData['time_series'][$metric][] = array($dk,round(floatval($row['metric_value']),3));
             }
         }
         echo(json_encode($returnData));
@@ -43,7 +44,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
                 $name = $row['cabinet_name'];
                 $metric = $row['metric'];
                 $returnData[$name]['id'] = $row['cabinet_id'];
-                $returnData[$name]['data'][$metric] = floatval($row['metric_value']);
+                $returnData[$name]['data'][$metric] = round(floatval($row['metric_value']),2);
                 $returnData[$name]['time'] = $row['date_key'];
             }
         }

@@ -27,7 +27,7 @@ export class ChartParentComponent implements OnInit {
               this.cabinetId = +res['id']
               this.metric = res['metric']
           });
-      this.chartDataService.getData(this.cabinetId)
+      this.chartDataService.getData(this.cabinetId,this.metric)
         .subscribe(res=> {
             this.data = res
             for(let metric in res['time_series']){

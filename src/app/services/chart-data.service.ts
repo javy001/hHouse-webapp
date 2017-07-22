@@ -8,11 +8,11 @@ import 'rxjs/add/operator/map';
 export class ChartDataService {
 
     constructor(private http: Http){}
-    getData(id): Observable<any>{
-         return this.http.get('http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/get_data.php?id='+id)
+    getData(id,metric): Observable<any>{
+         return this.http.get('http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/get_data.php?id='+id+'&metric='+metric)
             .map(response => response.json());
-        // return this.http.get('http://consumer-dev.sv2.trulia.com/dashboards/mobile/get_test_data.php?test_id='+test_id)
-        //     .map(response => response.json());
+            // http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/get_data.php?id=
+            // http://localhost:5555/hHouse/back-end/get_data.php?id=
 
     }
 }
