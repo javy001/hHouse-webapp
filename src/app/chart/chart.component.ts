@@ -61,7 +61,7 @@ export class ChartComponent implements OnInit {
             valueDecimals: 2,
             shared : true,
             split: true,
-            xDateFormat: "%A, %b %e"
+            xDateFormat: "%A, %b %e: %H"
      },
       series: []
     });
