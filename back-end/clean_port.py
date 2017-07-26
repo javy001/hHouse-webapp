@@ -31,12 +31,12 @@ def getData(id,name,table):
 df1 = getData(1,'Blake House','temp1')
 df2 = getData(2,'Blake Garage','temp2')
 
-for table in [df1,df2]:
+tables = {'Blake House': ['temp1',1], 'Blake Garage': ['temp2',2], 'Javier Garage': ['temp3',3]}
+for table in tables:
+    df = getData(tables[table][1],table,tables[table][0])
     try:
-        table.to_sql(con=con, name='fact_readings', index=False, schema='read_port', if_exists='append')
+        df.to_sql(con=con, name='fact_readings', index=False, schema='read_port', if_exists='append')
     except:
         print 'Duplicate Entry'
-
-for table in ['temp1','temp2']:
-    sql = "delete from read_port.{0}".format(table)
+    sql = "delete from read_port.{0}".format(tables[table][0])
     con.connect().execute(sql)
