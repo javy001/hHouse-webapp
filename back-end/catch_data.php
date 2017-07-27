@@ -2,7 +2,7 @@
 include 'config.php';
 
 date_default_timezone_set('America/Los_Angeles');
-$db = new mysqli('69.195.124.145', $user, $pass, $db_name, $db_port );
+$db = new mysqli( $db_host, $user, $pass, $db_name, $db_port );
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
         if(isset($_POST)){
