@@ -2,7 +2,7 @@
 <md-card>
 <form (ngSubmit)="ngOnSubmit()" [formGroup]="form">
   <div layour="row">
-    <div>
+    <md-divider>
       <md-input-container>
         <label>Water (l)</label>
         <input mdInput formControlName="water">
@@ -17,8 +17,8 @@
         <label>Micro (ml)</label>
         <input mdInput formControlName="micro">
       </md-input-container>
-    </div>
-    <div>
+    </md-divider>
+    <md-divider>
 
       <md-input-container>
         <label>Bloom (ml)</label>
@@ -39,7 +39,7 @@
         <label>Height (cm)</label>
         <input mdInput formControlName="height">
       </md-input-container>
-    </div>
+    </md-divider>
   </div>
 <md-card-actions>
 <button md-raised-button type="submit" class="md-primary">Submit</button>
