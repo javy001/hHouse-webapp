@@ -1,0 +1,55 @@
+<div class="col-md-8 col-md-offset-1">
+<md-card>
+<form (ngSubmit)="ngOnSubmit()" [formGroup]="form">
+  <div layour="row">
+    <div>
+      <md-input-container>
+        <label>Water (l)</label>
+        <input mdInput formControlName="water">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Grow (ml)</label>
+        <input mdInput formControlName="grow">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Micro (ml)</label>
+        <input mdInput formControlName="micro">
+      </md-input-container>
+    </div>
+    <div>
+
+      <md-input-container>
+        <label>Bloom (ml)</label>
+        <input mdInput formControlName="bloom">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Roots (ml)</label>
+        <input mdInput formControlName="roots">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Light (Hrs)</label>
+        <input mdInput formControlName="light">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Height (cm)</label>
+        <input mdInput formControlName="height">
+      </md-input-container>
+    </div>
+  </div>
+<md-card-actions>
+<button md-raised-button type="submit" class="md-primary">Submit</button>
+</md-card-actions>
+</form>
+</md-card>
+<br>
+<md-card>
+<p>Form: {{ form.value | json }}</p>
+<p>Form Status: {{ form.status }}</p>
+</md-card>
+<br>
+<div>
