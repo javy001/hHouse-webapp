@@ -13,7 +13,7 @@ export class PostDataService {
   constructor(private http: Http) { }
   
   submitData(data) /*: Observable<any> */{
-  	console.log(JSON.stringify(data));
+//  	console.log(JSON.stringify(data));
   	return this.http.post(
   		this.url,
   		JSON.stringify(data),

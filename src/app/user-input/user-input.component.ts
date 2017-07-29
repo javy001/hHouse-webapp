@@ -2,7 +2,7 @@ import { Component, OnInit, Directive } from '@angular/core';
 import { UserData } from '../user-data';
 import { PostDataService } from '../services/post-data.service';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
-
+//import { MdDatepickerModule } from '@angular/material';
 
 @Component({
   selector: 'app-user-input',
@@ -22,13 +22,15 @@ export class UserInputComponent implements OnInit {
 
   constructor(private postData: PostDataService, public fb: FormBuilder) {
       this.form = fb.group({
-      water: ['', Validators.required],
+      water: '',
       grow: '',
       micro: '',
       bloom: '',
       roots: '',
       light: '',
       height: '',
+      picker: [new Date(), Validators.required],
+      comment: ''
     });
   }
 
@@ -39,6 +41,6 @@ export class UserInputComponent implements OnInit {
     this.usrdata.data = this.form.value;
   	console.log(this.postData.submitData(this.usrdata));
     this.form.reset();
+    this.form.patchValue({picker: new Date()});
   }
-
 }
