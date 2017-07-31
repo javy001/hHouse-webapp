@@ -28,10 +28,11 @@ def getData(id,name,table):
     df['cabinet_name'] = name
     return df
 
-df1 = getData(1,'Blake House','temp1')
-df2 = getData(2,'Blake Garage','temp2')
+# df1 = getData(1,'Blake House','temp1')
+# df2 = getData(2,'Blake Garage','temp2')
 
-tables = {'Blake House': ['temp1',1], 'Blake Garage': ['temp2',2], 'Javier Garage': ['temp3',3]}
+tables = {'Unit 1': ['temp1',1], 'Unit 2': ['temp2',2], 'Unit 3': ['temp3',3],
+'Unit 4': ['temp4',4]}
 for table in tables:
     df = getData(tables[table][1],table,tables[table][0])
     try:
