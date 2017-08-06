@@ -15,8 +15,9 @@ export class UserInputComponent implements OnInit {
 
   form: FormGroup;
   usrdata = {
-    'username' : 'testuser',
+    'user' : 'testuser',
     'password' : 'testpassword',
+    'unit' : '0',
     'data' : undefined
   };
 
@@ -29,8 +30,8 @@ export class UserInputComponent implements OnInit {
       roots: '',
       light: '',
       height: '',
-      picker: [new Date(), Validators.required],
-      comment: ''
+      comment: '',
+      date: [new Date(), Validators.required]
     });
   }
 
@@ -41,6 +42,6 @@ export class UserInputComponent implements OnInit {
     this.usrdata.data = this.form.value;
   	console.log(this.postData.submitData(this.usrdata));
     this.form.reset();
-    this.form.patchValue({picker: new Date()});
+    this.form.patchValue({date: new Date()});
   }
 }
