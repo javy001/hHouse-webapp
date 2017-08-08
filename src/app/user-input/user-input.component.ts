@@ -23,6 +23,7 @@ export class UserInputComponent implements OnInit {
 
   constructor(private postData: PostDataService, public fb: FormBuilder) {
       this.form = fb.group({
+      unit: '',
       water: '',
       grow: '',
       micro: '',

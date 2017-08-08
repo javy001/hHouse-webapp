@@ -4,6 +4,10 @@
 
   <div flex="100" class="flex flex-col">
       <md-input-container class="box">
+        <label>Unit</label>
+        <input mdInput formControlName="unit">
+      </md-input-container>
+      <md-input-container class="box">
         <label>Water (L)</label>
         <input mdInput formControlName="water">
       </md-input-container>
@@ -39,7 +43,7 @@
   </div>
     <div flex="100" class="flex flex-col">
       <md-input-container class="box">
-          <input mdInput formControlName="date" [mdDatepicker]="picker" placeholder="Date Added">
+          <input mdInput formControlName="date" [mdDatepicker]="picker" placeholder="Date">
           <button mdSuffix [mdDatepickerToggle]="picker"></button>
         </md-input-container>
       <md-datepicker #picker></md-datepicker>
@@ -55,11 +59,12 @@
 <button md-raised-button type="submit" class="md-primary">Submit</button>
 </md-card-actions>
 </form>
-</md-card>
+
 <br>
 <md-card>
 <p>Form: {{ form.value | json }}</p>
 <p>Form Status: {{ form.status }}</p>
 </md-card>
 <br>
+</md-card>
 <div>
