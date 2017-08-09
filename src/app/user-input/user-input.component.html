@@ -3,10 +3,13 @@
 <form (ngSubmit)="ngOnSubmit()" [formGroup]="form">
 
   <div flex="100" class="flex flex-col">
-      <md-input-container class="box">
-        <label>Unit</label>
-        <input mdInput formControlName="unit">
-      </md-input-container>
+
+      <md-select formControlName="unit" placeholder="Unit">
+      <md-option *ngFor="let unit of units" [value]="unit">
+        {{ unit }}
+      </md-option>
+      </md-select>
+      
       <md-input-container class="box">
         <label>Water (L)</label>
         <input mdInput formControlName="water">

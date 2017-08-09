@@ -17,9 +17,9 @@ export class UserInputComponent implements OnInit {
   usrdata = {
     'user' : 'testuser',
     'password' : 'testpassword',
-    'unit' : '0',
     'data' : undefined
   };
+  units = [1,2,3,4];
 
   constructor(private postData: PostDataService, public fb: FormBuilder) {
       this.form = fb.group({

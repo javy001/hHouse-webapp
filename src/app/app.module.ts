@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule } from 'angular-highcharts';
-import { MdToolbarModule, MdCardModule, MdGridListModule, MdButtonModule, MdInputModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import { MdToolbarModule, MdCardModule, MdGridListModule, MdButtonModule, MdInputModule, MdDatepickerModule, MdNativeDateModule, MdOptionModule, MdSelectModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule} from '@angular/forms';
 
@@ -36,6 +36,8 @@ import { UserInputComponent } from './user-input/user-input.component';
     MdInputModule,
     MdDatepickerModule,
     MdNativeDateModule,
+    MdOptionModule,
+    MdSelectModule,
     ReactiveFormsModule,
 
 
