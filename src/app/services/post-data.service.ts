@@ -8,8 +8,8 @@ import { Observable } from 'rxjs/Rx';
 export class PostDataService {
 
   headers = new Headers({'Content-Type': 'application/json'});
-  url = 'http://coinsurf.info/catch_data.php';
-  //url = 'http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/catch_data.php';
+  //url = 'http://coinsurf.info/catch_data.php';
+  url = 'http://ec2-54-68-139-60.us-west-2.compute.amazonaws.com/app/catch_data.php';
   constructor(private http: Http) { }
   
   submitData(data) /*: Observable<any> */{
