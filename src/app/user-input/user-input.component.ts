@@ -32,7 +32,7 @@ export class UserInputComponent implements OnInit {
       light: '',
       height: '',
       comment: '',
-      date: [new Date(), Validators.required]
+      logdate: [new Date(), Validators.required]
     });
   }
 
@@ -43,6 +43,6 @@ export class UserInputComponent implements OnInit {
     this.usrdata.data = this.form.value;
   	console.log(this.postData.submitData(this.usrdata));
     this.form.reset();
-    this.form.patchValue({date: new Date()});
+    this.form.patchValue({logdate: new Date()});
   }
 }
