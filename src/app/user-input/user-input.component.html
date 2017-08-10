@@ -1,0 +1,73 @@
+<div class="col-md-8 col-md-offset-1">
+<md-card>
+<form (ngSubmit)="ngOnSubmit()" [formGroup]="form">
+
+  <div flex="100" class="flex flex-col">
+
+      <md-select formControlName="unit" placeholder="Unit">
+      <md-option *ngFor="let unit of units" [value]="unit">
+        {{ unit }}
+      </md-option>
+      </md-select>
+      
+      <md-input-container class="box">
+        <label>Water (L)</label>
+        <input mdInput formControlName="water">
+      </md-input-container>
+      <md-input-container class="box">
+        <label>Grow (mL)</label>
+        <input mdInput formControlName="grow">
+      </md-input-container>
+
+      <md-input-container class="box">
+        <label>Micro (mL)</label>
+        <input mdInput formControlName="micro">
+      </md-input-container>
+
+      <md-input-container class="box">
+        <label>Bloom (mL)</label>
+        <input mdInput formControlName="bloom">
+      </md-input-container>
+
+      <md-input-container class="box">
+        <label>Roots (mL)</label>
+        <input mdInput formControlName="roots">
+      </md-input-container>
+
+      <md-input-container class="box">
+        <label>Light (Hrs)</label>
+        <input mdInput formControlName="light">
+      </md-input-container>
+
+      <md-input-container class="box">
+        <label>Height (cm)</label>
+        <input mdInput formControlName="height">
+      </md-input-container>
+  </div>
+    <div flex="100" class="flex flex-col">
+      <md-input-container class="box">
+          <input mdInput formControlName="logdate" [mdDatepicker]="picker" placeholder="Date">
+          <button mdSuffix [mdDatepickerToggle]="picker"></button>
+        </md-input-container>
+      <md-datepicker #picker></md-datepicker>
+    </div>
+    <div flex="100" class="flex flex-col">
+      <md-input-container class="box">
+        <label>Comments</label>
+        <textarea mdInput formControlName="comment"></textarea>
+      </md-input-container>
+    </div>
+
+<md-card-actions>
+<button md-raised-button type="submit" class="md-primary">Submit</button>
+</md-card-actions>
+</form>
+
+<br>
+<md-card>
+<p>Form: {{ form.value | json }}</p>
+<p>Form Status: {{ form.status }}</p>
+</md-card>
+<br>
+</md-card>
+<div>
