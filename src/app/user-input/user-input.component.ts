@@ -2,7 +2,6 @@ import { Component, OnInit, Directive } from '@angular/core';
 import { UserData } from '../user-data';
 import { PostDataService } from '../services/post-data.service';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CabinetListComponent } from '../cabinet-list/cabinet-list.component';
 import { CabinetListService } from '../services/cabinet-list.service';
 //import { MdDatepickerModule } from '@angular/material';
 
