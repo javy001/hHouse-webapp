@@ -1,14 +1,16 @@
 import { Component, OnInit, Directive } from '@angular/core';
 import { UserData } from '../user-data';
 import { PostDataService } from '../services/post-data.service';
-import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CabinetListComponent } from '../cabinet-list/cabinet-list.component';
+import { CabinetListService } from '../services/cabinet-list.service';
 //import { MdDatepickerModule } from '@angular/material';
 
 @Component({
   selector: 'app-user-input',
   templateUrl: './user-input.component.html',
   styleUrls: ['./user-input.component.css'],
-  providers: [UserData, PostDataService]
+  providers: [UserData, PostDataService, CabinetListService]
 })
 
 export class UserInputComponent implements OnInit {
@@ -19,20 +21,23 @@ export class UserInputComponent implements OnInit {
     'password' : 'testpassword',
     'data' : undefined
   };
-  units = [1,2,3,4];
+  units: string[];
 
-  constructor(private postData: PostDataService, public fb: FormBuilder) {
-      this.form = fb.group({
-      unit: '',
-      water: '',
-      grow: '',
-      micro: '',
-      bloom: '',
-      roots: '',
-      light: '',
-      height: '',
-      comment: '',
-      logdate: [new Date(), Validators.required]
+
+  constructor(private postData: PostDataService, public fb: FormBuilder, private cabinetListService: CabinetListService) {
+    this.units = this.getUnitList();
+
+    this.form = fb.group({
+    unit: ['', Validators.required],
+    water: '',
+    grow: '',
+    micro: '',
+    bloom: '',
+    roots: '',
+    light: '',
+    height: '',
+    comment: '',
+    logdate: [new Date(), Validators.required]
     });
   }
 
@@ -44,5 +49,16 @@ export class UserInputComponent implements OnInit {
   	console.log(this.postData.submitData(this.usrdata));
     this.form.reset();
     this.form.patchValue({logdate: new Date()});
+  }
+
+  getUnitList(){
+    var units = [];
+    this.cabinetListService.getCabinetList()
+    .subscribe(res => {
+        for(let name in res){
+            units.push(name);
+        }
+    });
+    return units;
   }
 }
